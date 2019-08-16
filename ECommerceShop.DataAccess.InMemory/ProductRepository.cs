@@ -16,6 +16,7 @@ namespace ECommerceShop.DataAccess.InMemory
         public ProductRepository()
         {
             products = cache["products"] as List<Product>;
+
             if (products == null)
             {
                 products = new List<Product>();
@@ -58,6 +59,7 @@ namespace ECommerceShop.DataAccess.InMemory
             }
         }
 
+        // cast products as an IQueryable collection
         public IQueryable<Product> Collection()
         {
             return products.AsQueryable();
@@ -66,6 +68,7 @@ namespace ECommerceShop.DataAccess.InMemory
         public void Delete(string Id)
         {
             Product productToDelete = products.Find(p => p.Id == Id);
+
             if (productToDelete != null)
             {
                 products.Remove(productToDelete);
