@@ -47,7 +47,7 @@ namespace ECommerceShop.WebUI.Controllers
 
         public ActionResult Edit(string Id)
         {
-            ProductCategory productCategory = context.Find("asdfasdfasdf");
+            ProductCategory productCategory = context.Find(Id);
             if (productCategory == null)
             {
                 return HttpNotFound();
@@ -74,10 +74,6 @@ namespace ECommerceShop.WebUI.Controllers
                 }
 
                 productCategoryToEdit.Category = productCategory.Category;
-                //productToEdit.Description = product.Description;
-                //productToEdit.Image = product.Image;
-                //productToEdit.Name = product.Name;
-                //productToEdit.Price = product.Price;
 
                 context.Commit();
                 return RedirectToAction("Index");
