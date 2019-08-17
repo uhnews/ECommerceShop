@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ECommerceShop.Core.Contracts;
 using ECommerceShop.Core.Models;
 using ECommerceShop.DataAccess.InMemory;
 
@@ -11,12 +12,22 @@ namespace ECommerceShop.WebUI.Controllers
     public class ProductCategoryManagerController : Controller
     {
         //ProductCategoryRepository context;
-        InMemoryRepository<ProductCategory> context;
+        //InMemoryRepository<ProductCategory> context;
 
-        public ProductCategoryManagerController()
+        // refactoring with dependency injection
+        IRepository<ProductCategory> context;
+
+        //public ProductCategoryManagerController()
+        //{
+        //    //context = new ProductCategoryRepository();
+        //    context = new InMemoryRepository<ProductCategory>();
+        //}
+
+        // Refactor with dependency injection
+        public ProductCategoryManagerController(IRepository<ProductCategory> productCategoryConext)
         {
             //context = new ProductCategoryRepository();
-            context = new InMemoryRepository<ProductCategory>();
+            context = productCategoryConext;
         }
 
         // GET: ProductCategoryManager
