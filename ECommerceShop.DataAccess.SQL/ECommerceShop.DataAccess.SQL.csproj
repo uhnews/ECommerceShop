@@ -74,9 +74,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataContext.s" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ECommerceShop.Core\ECommerceShop.Core.csproj">
       <Project>{DE21977A-3FE0-4D78-809F-81D8AAE837CE}</Project>
       <Name>ECommerceShop.Core</Name>
